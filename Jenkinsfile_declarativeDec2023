@@ -8,7 +8,7 @@ pipeline{
   stages{
     stage('1clonecode'){
       steps{
-        git "https://github.com/LandmakTechnology/maven-web-application"
+         git  "https://github.com/miriammarike/maven-web-application"
       }
     }
     stage('2mavenBuild'){
@@ -35,7 +35,7 @@ pipeline{
   stage('5deploy2UAT'){
     steps{
           sh "echo Deployment is ready for the client review" 
-          deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://10.0.0.38:8088/')], contextPath: null, war: 'target/*war  '
+          deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.91.26.160:8080/')], contextPath: null, war: 'target/*war'
        
     }
   } 
